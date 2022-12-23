@@ -19,7 +19,10 @@ Route::get('/', function () {
 */
 
 Route::get('/', 'PrincipalController@principal');
+Route::get('/contato', 'ContatoController@contato');
+Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
+/*
 Route::get('/sobre-nos', function () {
     return 'Sobre Nós';
 });
@@ -27,3 +30,4 @@ Route::get('/sobre-nos', function () {
 Route::get('/contato', function () {
     return 'Contato';
 });
+*/

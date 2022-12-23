@@ -24,15 +24,13 @@ Route::get('/sobre-nos', 'SobreNosController@sobreNos');
 
 //nome, categoria, assunto, mensagem
 
-Route::get('/contato/{nome}/{categoria}/{assunto}/{mensagem?}', 
+Route::get('/contato/{nome}/{categoria_id}',
 function (
-    string $nome,
-    string $categoria,
-    string $assunto,
-    string $mensagem = 'nao informado'
+    string $nome = 'Desconhecido',
+    int $categoria_id = 1
     ) {
-    echo "Estamos nesta rota: $nome - $categoria - $assunto - $mensagem";
-});
+    echo "Estamos nesta rota: $nome - $categoria_id";
+})->where('categoria_id', '[0-9]+')->where('nome', '[A-Za-z]+');
 
 /*
 Route::get('/sobre-nos', function () {

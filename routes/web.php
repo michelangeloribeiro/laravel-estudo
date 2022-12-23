@@ -17,17 +17,17 @@ Route::get('/', function () {
     return 'Olá, seja bem vindo ao nosso curso.';
 });
 */
-
-Route::get('/', 'PrincipalController@principal');
-Route::get('/contato', 'ContatoController@contato');
-Route::get('/sobre-nos', 'SobreNosController@sobreNos');
-Route::get('/login', function(){ return 'Login'; });
+Route::get('/', 'PrincipalController@principal')->name('site.index');
+//vantagem de criar o nome para as rotas é que se o nome for alterado nao precisa trocar os links
+Route::get('/formulario-de-contato-teste', 'ContatoController@contato')->name('site.contato');
+Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
+Route::get('/login', function(){ return 'Login'; })->name('site.login');
 
 //app
 Route::prefix('/app')->group(function() {
-    Route::get('/clientes', function(){ return 'Clientes'; });
-    Route::get('/fornecedores', function(){ return 'Fornecedores'; });
-    Route::get('/produtos', function(){ return 'Produtos'; });
+    Route::get('/clientes', function(){ return 'Clientes'; })->name('app.clientes');
+    Route::get('/fornecedores', function(){ return 'Fornecedores'; })->name('app.fornecedores');
+    Route::get('/produtos', function(){ return 'Produtos'; })->name('app.produtos');
 });
 
 

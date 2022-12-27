@@ -19,7 +19,9 @@ Route::get('/', function () {
 */
 Route::get('/', 'PrincipalController@principal')->name('site.index');
 //vantagem de criar o nome para as rotas é que se o nome for alterado nao precisa trocar os links
-Route::get('/formulario-de-contato-teste', 'ContatoController@contato')->name('site.contato');
+Route::get('/contato', 'ContatoController@contato')->name('site.contato');
+Route::post('/contato', 'ContatoController@contato')->name('site.contato');
+
 Route::get('/sobre-nos', 'SobreNosController@sobreNos')->name('site.sobrenos');
 Route::get('/login', function(){ return 'Login'; })->name('site.login');
 

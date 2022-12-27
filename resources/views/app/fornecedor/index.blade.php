@@ -23,7 +23,22 @@
 
 {{-- gerando comentario --}}
 
-@php
- //Teset
- /* teste */   
-@endphp
+@isset($fornecedores)
+
+@forelse (fornecedores as $item)
+    
+@empty
+Não existe cadastros!!!
+    
+@endforelse
+
+@endisset
+
+
+@if(count($fornecedores) > 0 && count($fornecedores) < 10)
+    <h3>Existem alguns fornecedores cadastrados</h3>
+@elseif(count($fornecedores) > 10)
+    <h3>Existem vários fornecedores cadastrados</h3>
+@else
+    <h3>Ainda não existem fornecedores cadastrados</h3>
+@endif
